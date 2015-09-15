@@ -1,0 +1,28 @@
+ACC.bodonyj2@abernathy:~/public_html/F15-CSCI241$ nc infd.birdnest.org 80
+GET /~acc.besmera2/simulators/FormData/echo.php?username=bodonyj2&winthropId=30143213&emailAddress=bodonyj2%40winthrop.edu HTTP/1.1
+Host: infd.birdnest.org
+
+HTTP/1.1 200 OK
+Date: Wed, 09 Sep 2015 16:08:27 GMT
+Server: Apache/2.4.6 (Ubuntu)
+X-Powered-By: PHP/5.5.3-1ubuntu2.6
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+Content-Type: text/html
+
+bc
+<pre>
+You sent the following information:
+
+GET Data Key: username
+Value: bodonyj2
+
+GET Data Key: winthropId
+Value: 30143213
+
+GET Data Key: emailAddress
+Value: bodonyj2@winthrop.edu
+
+</pre>
+0
+
