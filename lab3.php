@@ -18,21 +18,13 @@
 		$priceItem2 = ($_POST["priceItem2"]);
 		$priceItem3 = ($_POST["priceItem3"]);
 		$priceItem4 = ($_POST["priceItem4"]);	
-		
+		$subTotal = ($priceItem1 + $priceItem2 + $priceItem3 + $priceItem4);
 		
 			if(isset($_POST["includeTax"]))
      			{
-     			$subTotal = ($priceItem1 + $priceItem2 + $priceItem3 + $priceItem4);
-					if(isset($_POST["includeTax"]))
-					{
-					$total = (($subTotal * .07) + $subTotal);
-					}	
-					else 
-					{
-					$total = $subTotal;	
-					}
- 
-     			echo "Invoice Item 1: " . $invoiceItem1 . "<br>" . " Price: $" . number_format(($priceItem1 * .07) + $priceItem1, 2) . "<br>" . "<br>";
+     			
+				$total = (($subTotal * .07) + $subTotal);
+				echo "Invoice Item 1: " . $invoiceItem1 . "<br>" . " Price: $" . number_format(($priceItem1 * .07) + $priceItem1, 2) . "<br>" . "<br>";
 	  			echo "Invoice Item 2: " . $invoiceItem2 . "<br>" . " Price: $" . number_format(($priceItem2 * .07) + $priceItem2, 2) . "<br>" . "<br>";
 	  			echo "Invoice Item 3: " . $invoiceItem3 . "<br>" . " Price: $" . number_format(($priceItem3 * .07) + $priceItem3, 2) . "<br>" . "<br>";
 	  			echo "Invoice Item 4: " . $invoiceItem4 . "<br>" . " Price: $" . number_format(($priceItem4 * .07) + $priceItem4, 2) . "<br>" . "<br>";
@@ -41,14 +33,17 @@
 				}
 			else 
 				{
+				$total = $subTotal;	
 				echo "Invoice Item 1: " . $invoiceItem1 . "<br>" . " Price: $" . $priceItem1 . "<br>" . "<br>";
 	  			echo "Invoice Item 2: " . $invoiceItem2 . "<br>" . " Price: $" . $priceItem2 . "<br>" . "<br>";
 	  			echo "Invoice Item 3: " . $invoiceItem3 . "<br>" . " Price: $" . $priceItem3 . "<br>" . "<br>";
 	  			echo "Invoice Item 4: " . $invoiceItem4 . "<br>" . " Price: $" . $priceItem4 . "<br>" . "<br>";
+				echo "Subtotal: $" . number_format($subTotal, 2) . "<br>";
+				echo "Total: $" . number_format($total, 2);
 				}
-		}		
-	else		
-		{			
+			}
+else {		
+						
     ?>
   	
 		<form method="post" action="lab3.php" name="form">
@@ -61,6 +56,7 @@
 		</form>
 	<?php
 		}
+		
 	?>
 	</body>
 	</html>
