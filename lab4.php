@@ -4,8 +4,6 @@
 		<title>Lab 4</title>
 	</head>
 	<body>
-		
-
 		<pre><?php 
 		
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -15,18 +13,12 @@
 			$startValue = ($_POST["startValue"]);
 			$endValue = ($_POST["endValue"]);
 		
-			if (!is_numeric($startValue) || !is_numeric($endValue))
+			if (is_numeric($startValue) && is_numeric($endValue))
 			{
-			echo "One or both of the inputs is not valid.";
-			}
-			else 
-			{
-				if(abs($startValue - $endValue)+1 > 11)
+				if(abs($startValue - $endValue)+1 < 11)
 				{
-				echo "Please use a range of numbers within 10 values of each other.";
-				}
-				else 
-				{
+					
+				
 					echo "X" . "\t";
 					for ($ct = $startValue; $ct <= $endValue; $ct++)
 					{
@@ -42,9 +34,21 @@
 						}
 					}	
 				}	
+				else
+				{ 
+				echo "Please use a range of numbers under 10 values of each other.";
+				
+				}
+			}	
+			else
+			{
+		
+			echo "One or both of the inputs is not valid.";
 			}
+				
 		}		
 	}
+	
 	else
 	{	
 	?>
@@ -61,17 +65,6 @@
 		
 	?>	
 			
-		
-		
-		
-			
-	
-	
-
-
-
-
-	
 	
 	
 	</body>
